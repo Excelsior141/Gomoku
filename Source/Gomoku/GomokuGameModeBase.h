@@ -14,4 +14,6 @@ class GOMOKU_API AGomokuGameModeBase : public AGameModeBase
 {
 	GENERATED_BODY()
 	
+public:
+	AGomokuGameModeBase();
 };

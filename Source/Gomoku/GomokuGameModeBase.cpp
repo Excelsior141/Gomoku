@@ -2,4 +2,11 @@
 
 
 #include "GomokuGameModeBase.h"
+#include "GomokuPlayerController.h"
+#include "GomokuPawn.h"
 
+AGomokuGameModeBase::AGomokuGameModeBase()
+{
+	DefaultPawnClass = AGomokuPawn::StaticClass();
+	PlayerControllerClass = AGomokuPlayerController::StaticClass();
+}
