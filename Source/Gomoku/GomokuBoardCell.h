@@ -23,4 +23,10 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	void SetScale(float scale);
+
+private:
+
+	USceneComponent* dummyRoot;
+	UStaticMeshComponent* mesh;
 };

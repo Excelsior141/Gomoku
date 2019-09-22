@@ -2,6 +2,8 @@
 
 #pragma once
 
+#include "GomokuBoardCell.h"
+
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "GomokuBoard.generated.h"
@@ -25,10 +27,19 @@ public:
 
 public:
 
-	UPROPERTY(Category=Board, EditAnywhere)
+	UPROPERTY(Category=Board, EditAnywhere, meta = (ClampMin = "3", ClampMax = "33", UIMin = "3", UIMax = "33"))
 	int32 Width;
 
-	UPROPERTY(Category=Board, EditAnywhere)
+	UPROPERTY(Category=Board, EditAnywhere, meta = (ClampMin = "3", ClampMax = "33", UIMin = "3", UIMax = "33"))
 	int32 Height;
 
+	UPROPERTY(Category=Board, EditAnywhere, meta = (ClampMin = "1.0", ClampMax = "100.0", UIMin = "1.0", UIMax = "100.0"))
+	float CellSize;
+
+private:
+
+	USceneComponent* dummyRoot;
+	UStaticMeshComponent* mesh;
+
+	TArray<AGomokuBoardCell*> cells;
 };

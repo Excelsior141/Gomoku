@@ -17,13 +17,6 @@ void AGomokuPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputComponen
 	PlayerInputComponent->BindAction("TriggerClick", EInputEvent::IE_Pressed, this, &AGomokuPawn::TriggerClick);
 }
 
-void AGomokuPawn::CalcCamera(float DeltaTime, struct FMinimalViewInfo& OutResult)
-{
-	Super::CalcCamera(DeltaTime, OutResult);
-
-	OutResult.Rotation = FRotator(-90.0f, -90.0f, 0.0f);
-}
-
 void AGomokuPawn::TriggerClick()
 {
 
