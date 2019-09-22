@@ -28,5 +28,11 @@ public:
 private:
 
 	USceneComponent* dummyRoot;
-	UStaticMeshComponent* mesh;
+	UStaticMeshComponent* gridMesh;
+
+	UStaticMeshComponent* tokenMesh;
+	UMaterial* tokenMaterial;
+	UMaterialInstance* tokenMaterialPlayer;
+	UMaterialInstance* tokenMaterialComputer;
+
 };
