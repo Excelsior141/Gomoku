@@ -4,6 +4,8 @@
 
 #include "CoreMinimal.h"
 
+#include "GomokuBoardCell.h"
+
 #include "GameFramework/Pawn.h"
 #include "GameFramework/PlayerController.h"
 #include "Camera/CameraComponent.h"
@@ -19,7 +21,13 @@ public:
 
 	virtual void SetupPlayerInputComponent(UInputComponent* PlayerInputComponent) override;
 
+	virtual void Tick(float DeltaTime) override;
+
 protected:
 
 	void TriggerClick();
+
+private:
+
+	AGomokuBoardCell* lastHitCell;
 };

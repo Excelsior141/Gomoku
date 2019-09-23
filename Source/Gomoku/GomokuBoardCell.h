@@ -12,6 +12,15 @@ class GOMOKU_API AGomokuBoardCell : public AActor
 	GENERATED_BODY()
 	
 public:	
+
+	enum class State
+	{
+		Disabled,
+		Highlighted,
+		Player,
+		Computer
+	};
+
 	// Sets default values for this actor's properties
 	AGomokuBoardCell();
 
@@ -25,7 +34,12 @@ public:
 
 	void SetScale(float scale);
 
+	AGomokuBoardCell::State GetState() { return currentState; }
+	void SetState(AGomokuBoardCell::State state);
+
 private:
+
+	State currentState;
 
 	USceneComponent* dummyRoot;
 	UStaticMeshComponent* gridMesh;

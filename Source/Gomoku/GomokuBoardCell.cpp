@@ -10,6 +10,7 @@
 
 // Sets default values
 AGomokuBoardCell::AGomokuBoardCell()
+	: currentState(State::Disabled)
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
@@ -32,6 +33,7 @@ AGomokuBoardCell::AGomokuBoardCell()
 	tokenMesh->SetMaterial(0, tokenMaterial);
 	tokenMesh->SetRelativeLocation(FVector(0.0f, 0.0f, 2.0f));
 	tokenMesh->SetupAttachment(dummyRoot);
+	tokenMesh->SetHiddenInGame(true);
 }
 
 // Called when the game starts or when spawned
@@ -45,12 +47,40 @@ void AGomokuBoardCell::BeginPlay()
 void AGomokuBoardCell::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
 }
 
 void AGomokuBoardCell::SetScale(float scale)
 {
 	gridMesh->SetWorldScale3D(FVector(scale, scale, scale));
 	tokenMesh->SetWorldScale3D(FVector(scale, scale, scale));
+}
+
+void AGomokuBoardCell::SetState(AGomokuBoardCell::State state)
+{
+	currentState = state;
+
+	switch (state)
+	{
+		case State::Disabled:
+		{
+			tokenMesh->SetHiddenInGame(true);
+			tokenMesh->SetMaterial(0, tokenMaterial);
+		} break;
+		case State::Highlighted:
+		{
+			tokenMesh->SetHiddenInGame(false);
+			tokenMesh->SetMaterial(0, tokenMaterial);
+		} break;
+		case State::Player:
+		{
+			tokenMesh->SetHiddenInGame(false);
+			tokenMesh->SetMaterial(0, tokenMaterialPlayer);
+		} break;
+		case State::Computer:
+		{
+			tokenMesh->SetHiddenInGame(false);
+			tokenMesh->SetMaterial(0, tokenMaterialComputer);
+		} break;
+	}
 }
 

@@ -27,10 +27,10 @@ public:
 
 public:
 
-	UPROPERTY(Category=Board, EditAnywhere, meta = (ClampMin = "3", ClampMax = "33", UIMin = "3", UIMax = "33"))
+	UPROPERTY(Category=Board, EditAnywhere, meta = (ClampMin = "8", ClampMax = "50", UIMin = "8", UIMax = "50"))
 	int32 Width;
 
-	UPROPERTY(Category=Board, EditAnywhere, meta = (ClampMin = "3", ClampMax = "33", UIMin = "3", UIMax = "33"))
+	UPROPERTY(Category=Board, EditAnywhere, meta = (ClampMin = "8", ClampMax = "50", UIMin = "8", UIMax = "50"))
 	int32 Height;
 
 	UPROPERTY(Category=Board, EditAnywhere, meta = (ClampMin = "1.0", ClampMax = "100.0", UIMin = "1.0", UIMax = "100.0"))
