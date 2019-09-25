@@ -3,6 +3,8 @@
 
 #include "GomokuBoardCell.h"
 
+#include "GomokuBoard.h"
+
 #include "UObject/ConstructorHelpers.h"
 #include "Components/StaticMeshComponent.h"
 #include "Engine/StaticMesh.h"
@@ -75,6 +77,11 @@ void AGomokuBoardCell::SetState(AGomokuBoardCell::State state)
 		{
 			tokenMesh->SetHiddenInGame(false);
 			tokenMesh->SetMaterial(0, tokenMaterialPlayer);
+
+			if (ParentBoard != nullptr)
+			{
+				ParentBoard->OnPlayerActivatedCell(X, Y);
+			}
 		} break;
 		case State::Computer:
 		{

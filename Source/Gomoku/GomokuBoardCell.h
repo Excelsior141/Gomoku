@@ -6,6 +6,9 @@
 #include "GameFramework/Actor.h"
 #include "GomokuBoardCell.generated.h"
 
+// Forward declaration(s)
+class AGomokuBoard;
+
 UCLASS()
 class GOMOKU_API AGomokuBoardCell : public AActor
 {
@@ -36,6 +39,14 @@ public:
 
 	AGomokuBoardCell::State GetState() { return currentState; }
 	void SetState(AGomokuBoardCell::State state);
+
+public:
+
+	UPROPERTY()
+	AGomokuBoard* ParentBoard;
+
+	int X;
+	int Y;
 
 private:
 

@@ -25,16 +25,21 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	void OnPlayerActivatedCell(int x, int y);
+
 public:
 
 	UPROPERTY(Category=Board, EditAnywhere, meta = (ClampMin = "8", ClampMax = "50", UIMin = "8", UIMax = "50"))
-	int32 Width;
-
-	UPROPERTY(Category=Board, EditAnywhere, meta = (ClampMin = "8", ClampMax = "50", UIMin = "8", UIMax = "50"))
-	int32 Height;
+	int32 BoardSize;
 
 	UPROPERTY(Category=Board, EditAnywhere, meta = (ClampMin = "1.0", ClampMax = "100.0", UIMin = "1.0", UIMax = "100.0"))
-	float CellSize;
+	float CellScale;
+
+private:
+
+	int getCellIndex(int x, int y);
+
+	bool fiveInARow(const TArray<AGomokuBoardCell*>& line, AGomokuBoardCell::State state);
 
 private:
 
@@ -42,4 +47,13 @@ private:
 	UStaticMeshComponent* mesh;
 
 	TArray<AGomokuBoardCell*> cells;
+
+	int lastPlayerCellX;
+	int lastPlayerCellY;
+
+	TArray<TArray<AGomokuBoardCell*>> allLines;
+	TArray<TArray<AGomokuBoardCell*>> verticalLines;
+	TArray<TArray<AGomokuBoardCell*>> horizontalLines;
+	TArray<TArray<AGomokuBoardCell*>> leftHandOrthoLines;
+	TArray<TArray<AGomokuBoardCell*>> rightHandOrthoLines;
 };
