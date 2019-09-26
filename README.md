@@ -1,6 +1,12 @@
 # Gomoku - Unreal Engine 4 example game with C++
 
-##Goals:
+Please check out the Release branch
+
+## Project hours
+Project started Sep 16, 2019 and finished Sep 26, 2019
+Total hours: __~24__
+
+## Goals:
 1. Engine version – 4.20 or higher.
 2. Field size should be 8x8 or bigger.
 3. Game board should be displayed in 3d – nothing fancy needed, just some squares and
@@ -14,7 +20,7 @@ to make a move).
 7. BP and C++
 8. UI
 
-###Achievments
+## Achievments
 1. Engine version is 4.23.
 2. Field size can be configured to be from 8x8 up to 50x50 (arbitrary limit).
 3. Game board and tokens were made using in-built BSP shapes exported to 3D static meshes.
@@ -24,9 +30,5 @@ to make a move).
 7. C++ only
 8. Log messages on screen
 
-###Drawbacks
+### Drawbacks
 *There is no actual game state - the game can be continued even after win/lose condition is reached and restarted only through the editor.
-
-####Project hours
-Project started Sep 16, 2019 and finished Sep 26, 2019
-Total hours: __~24__
